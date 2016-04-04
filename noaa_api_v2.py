@@ -3,8 +3,6 @@
 # http://www.ncdc.noaa.gov/cdo-web/webservices/v2
 import requests
 
-api_token = '******'
-
 headers = {
     'token': api_token
 }
