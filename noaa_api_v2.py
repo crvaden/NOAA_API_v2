@@ -3,14 +3,9 @@
 # http://www.ncdc.noaa.gov/cdo-web/webservices/v2
 import requests
 
-api_token = 'eaIyfkhZuICaGXRtsSOihuhSSbVAwIFz'
-
-headers = {
-    'token': api_token
-}
 
 class NOAAData(object):
-    def __init__(self, token=api_token):
+    def __init__(self, token):
         # NOAA API Endpoint
         self.url = 'http://www.ncdc.noaa.gov/cdo-web/api/v2/'
         self.h = dict(token=token)
