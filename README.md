@@ -13,7 +13,7 @@ http://www.ncdc.noaa.gov/cdo-web/api/v2/
 from noaa_api_v2 import NOAAData
 api_token = "your token here"
 
-data = NOAAData(api_token)
+data = NOAAData()
 
 categories = data.data_categories()
 
