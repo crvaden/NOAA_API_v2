@@ -10,7 +10,7 @@ headers = {
 }
 
 class NOAAData(object):
-    def __init__(self, token):
+    def __init__(self, token=api_token):
         # NOAA API Endpoint
         self.url = 'http://www.ncdc.noaa.gov/cdo-web/api/v2/'
         self.h = dict(token=token)
@@ -65,17 +65,14 @@ class NOAAData(object):
         req_type = 'stations'
         return self.poll_api(req_type, **kwargs)
 
+    # Fetch information about specific dataset
+    def dataset_spec(self, set_code, **kwargs):
+        req_type = 'datacategories/' + set_code
+        return self.poll_api(req_type, **kwargs)
+
     # Fetch data
     # http://www.ncdc.noaa.gov/cdo-web/webservices/v2#data
     def fetch_data(self, **kwargs):
         req_type = 'data'
         return self.poll_api(req_type, **kwargs)
 
-    # Fetch information about specific dataset
-    def dataset_spec(self, set_code, **kwargs):
-        req_type = 'datacategories/' + set_code
-        return self.poll_api(req_type, **kwargs)
-
-test = NOAAData(api_token).dataset_spec('annagr')
-
-print(test)
