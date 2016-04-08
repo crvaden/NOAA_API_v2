@@ -13,9 +13,9 @@ http://www.ncdc.noaa.gov/cdo-web/api/v2/
 from noaa_api_v2 import NOAAData
 api_token = "your token here"
 
-data = NOAAData()
+data = NOAAData(api_token)
 
-categories = data.data_categories()
+categories = data.data_categories(locationid='FIPS:37', sortfield='name')
 
 for i in categories:
     print(i)
@@ -31,7 +31,7 @@ Available methods are:
 * dataset_spec
 * fetch_data
 
-Parameters can be passed as arguements within the method call:
+Parameters can be passed as arguments within the method call:
 ```
 weather_data = data.fetch_data(datasetid='GHCND', locationid='ZIP:28801', startdate='2010-05-01', enddate='2010-05-02', limit=1000
 ```
