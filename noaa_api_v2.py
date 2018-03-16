@@ -7,7 +7,7 @@ import requests
 class NOAAData(object):
     def __init__(self, token):
         # NOAA API Endpoint
-        self.url = 'http://www.ncdc.noaa.gov/cdo-web/api/v2/'
+        self.url = 'https://www.ncdc.noaa.gov/cdo-web/api/v2/'
         self.h = dict(token=token)
 
     def poll_api(self, req_type, payload):
